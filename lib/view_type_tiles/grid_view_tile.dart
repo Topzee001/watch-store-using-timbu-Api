@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'model/watch.dart';
+import '../model/watch.dart';
 
-class ProductTile extends StatelessWidget {
+class GridViewTile extends StatelessWidget {
   final Watch product;
   final VoidCallback onAddToCart;
 
-  ProductTile({required this.product, required this.onAddToCart});
+  GridViewTile({required this.product, required this.onAddToCart});
 
   @override
   Widget build(BuildContext context) {
