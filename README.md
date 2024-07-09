@@ -1,4 +1,4 @@
-# Timbu Products Showcase App Using Timbu API Backend
+# Watch Shopping App Using Timbu API Backend, HNG stage 2 task
 
 ## Description
 
