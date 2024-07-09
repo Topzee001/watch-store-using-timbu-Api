@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../model/product.dart';
+import '../model/watch.dart';
 //import '../models/product.dart';
 
 class ApiService {
@@ -10,7 +10,7 @@ class ApiService {
   static const String apiKey =
       '9adfbc71bb01405cab62632429b816be20240706130617811667';
 
-  Future<List<Product>> fetchProducts() async {
+  Future<List<Watch>> fetchWatches() async {
     final String url =
         '$baseUrl?organization_id=$organizationId&Appid=$appId&Apikey=$apiKey';
     final Uri uri = Uri.parse(url);
@@ -21,8 +21,8 @@ class ApiService {
       print('Response status code: ${response.body}');
       final mapResponse = json.decode(response.body);
       final listResponse = mapResponse['items'];
-      return List<Product>.from(
-          listResponse.map((item) => Product.fromJson(item)));
+      return List<Watch>.from(
+          listResponse.map((item) => Watch.fromJson(item)));
     } else {
       print('Failed to load data. Status code: ${response.statusCode}');
       print('Response body: ${response.body}'); //

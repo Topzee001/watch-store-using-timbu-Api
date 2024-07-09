@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import 'homepage.dart';
 
 class MyOrderSuccess extends StatelessWidget {
@@ -15,10 +14,11 @@ class MyOrderSuccess extends StatelessWidget {
           return;
         }
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) =>  MyHomePage()),
+          MaterialPageRoute(builder: (context) => MyHomePage()),
         );
       },
       child: Scaffold(
+        backgroundColor: Colors.grey.shade400,
         // appBar: AppBar(
         //   title: Text('Order success'),
         // ),
@@ -35,7 +35,7 @@ class MyOrderSuccess extends StatelessWidget {
             ),
             const Text(
               "Your Order has been successfully placed.",
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 50,
@@ -71,7 +71,7 @@ class MyOrderSuccess extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) =>  MyHomePage(),
+                      builder: (context) => MyHomePage(),
                     ),
                   );
                 },

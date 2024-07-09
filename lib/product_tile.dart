@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'model/product.dart';
+import 'model/watch.dart';
 
 class ProductTile extends StatelessWidget {
-  final Product product;
+  final Watch product;
   final VoidCallback onAddToCart;
 
   ProductTile({required this.product, required this.onAddToCart});
@@ -49,21 +49,25 @@ class ProductTile extends StatelessWidget {
               ),
             ],
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('\$${product.price.toStringAsFixed(2)}'),
-              IconButton(
-                onPressed: onAddToCart,
-                icon: Icon(Icons.add_shopping_cart),
-                iconSize: 20,
-                // padding: EdgeInsets.all(4),
-                constraints: BoxConstraints(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade200,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  onPressed: onAddToCart,
+                  icon: Icon(Icons.add_shopping_cart),
+                  iconSize: 20,
+                  // padding: EdgeInsets.all(4),
+                  constraints: BoxConstraints(),
+                ),
               )
             ],
           ),
-         
         ],
       ),
     );

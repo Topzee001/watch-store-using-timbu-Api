@@ -5,6 +5,8 @@ import 'cart_page.dart';
 import 'product_page.dart';
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -12,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     ProductPage(),
     CartPage(),
   ];
@@ -27,9 +29,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _pages.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: Container( 
         color: Colors.grey.shade300,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
