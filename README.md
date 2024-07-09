@@ -36,11 +36,14 @@ This flutter mobile application showcases products from a Timbu retail business 
 1. Setup flutter on your PC,you can  follow the [official Flutter installation guide](https://flutter.dev/docs/get-started/install) to setup.
 
 2. Clone the repository using your terminal:
+ ```dart
 https://github.com/Topzee001/watch-store-using-timbu-Api.git
-
+ ```
 3. Navigate to the project directory:
-cd watch-store-using-timbu-Api
 
+```dart
+cd watch-store-using-timbu-Api
+  ```
 
 4. Get dependencies usingthe command:
 flutter pub get
@@ -53,12 +56,17 @@ flutter pub get
   ```
 
 6. Run the app using the command:
-flutter run
+ ```dart
+  flutter run
+  ```
 
 ## Building the APK
 
 To build the APK, run: 
-flutter build apk 
+ ```dart
+ flutter build apk 
+  ```
+
 
 The APK will be available at `build/app/outputs/flutter-apk/app-release.apk`.
 
