@@ -1,4 +1,4 @@
-# Timbu Shop Showcase App
+# Timbu Shop Showcase App using Timbu API backend
 
 ## Description
 
