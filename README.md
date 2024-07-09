@@ -38,7 +38,7 @@ This Flutter mobile application showcases products from a Timbu retail business 
 
 ## App Demo using Appetize.io
 
-- [Appetize.io Link](https://appetize.io/your-app-link-here)
+- [Appetize.io Link](https://appetize.io/app/b_m3ycf24ugu5z7g2vpzdmik4niy)
 
 ## APK Download
 
