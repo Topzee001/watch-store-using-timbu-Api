@@ -80,7 +80,8 @@ The app implements robust error handling for API calls and data processing.
 
 ## Contact
 
-Your Name - [@Topzee0o1](https://x.com/Topzee0o1?t=0mRrTquyK7ZrSDDzjwhHLw&s=03) - topzee001@gmail.com
+Twitter - [@Topzee0o1](https://x.com/Topzee0o1?t=0mRrTquyK7ZrSDDzjwhHLw&s=03) 
+Gmail- topzee001@gmail.com
 
 
 
