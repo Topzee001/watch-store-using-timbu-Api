@@ -14,7 +14,7 @@ class MyOrderSuccess extends StatelessWidget {
           return;
         }
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => MyHomePage()),
+          MaterialPageRoute(builder: (context) => const MyHomePage()),
         );
       },
       child: Scaffold(
@@ -71,7 +71,7 @@ class MyOrderSuccess extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => MyHomePage(),
+                      builder: (context) => const MyHomePage(),
                     ),
                   );
                 },

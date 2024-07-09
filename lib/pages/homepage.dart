@@ -15,8 +15,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   static final List<Widget> _pages = <Widget>[
-    ProductPage(),
-    CartPage(),
+    const ProductPage(),
+    const CartPage(),
   ];
 
   void navigateBottomBar(int index) {
@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: _pages.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: Container( 
+      bottomNavigationBar: Container(
         color: Colors.grey.shade300,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),

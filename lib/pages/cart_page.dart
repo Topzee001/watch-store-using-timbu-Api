@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../cart_items.dart';
+import '../view_tiles/cart_item_tile.dart';
 import '../providers/cart_provider.dart';
 import 'homepage.dart';
 import 'order_success_page.dart';
 
 class CartPage extends StatelessWidget {
+  const CartPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final cartProvider = Provider.of<CartProvider>(context);
@@ -23,9 +25,15 @@ class CartPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.grey.shade400,
         appBar: AppBar(
-          title: const Text('Cart'),
+          title: const Text(
+            'Cart',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              // color: Colors.white,
+            ),
+          ),
           centerTitle: true,
-          backgroundColor: Colors.grey.shade100,
+          backgroundColor: Colors.grey.shade200,
         ),
         body: cartProvider.cartItems.isEmpty
             ? const Center(child: Text('No items added to cart'))
@@ -92,12 +100,12 @@ class CartPage extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      //widget.cartProvider.clearCart();
                       Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
                             builder: (context) => const MyOrderSuccess()),
                         (Route<dynamic> route) => false,
                       );
+                      cartProvider.clearCart();
                     },
                   ),
                 ],

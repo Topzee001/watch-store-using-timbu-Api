@@ -5,7 +5,7 @@ class CartItem extends StatelessWidget {
   final Watch product;
   final VoidCallback onRemove;
 
-  CartItem({required this.product, required this.onRemove});
+  const CartItem({super.key, required this.product, required this.onRemove});
 
   @override
   Widget build(BuildContext context) {

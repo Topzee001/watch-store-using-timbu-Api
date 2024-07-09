@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:timbu_app/view_type_tiles/list_view_tile.dart';
-import '../view_type_tiles/grid_view_tile.dart';
+import 'package:timbu_app/view_tiles/list_view_tile.dart';
+import '../view_tiles/grid_view_tile.dart';
 import '../providers/cart_provider.dart';
 
 enum ViewType { list, grid }
@@ -24,15 +24,20 @@ class _ProductPageState extends State<ProductPage> {
       backgroundColor: Colors.grey.shade400,
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Shop Your Luxury Watches'),
-        backgroundColor: Colors.grey.shade100,
+        title: const Text(
+          'Shop Your Luxury Watches',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            // color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.grey.shade200,
         actions: [
           IconButton(
             onPressed: () {
               setState(() {
-                _viewType = _viewType == ViewType.list
-                    ? ViewType.grid
-                    : ViewType.list;
+                _viewType =
+                    _viewType == ViewType.list ? ViewType.grid : ViewType.list;
               });
             },
             icon: Icon(
@@ -44,7 +49,25 @@ class _ProductPageState extends State<ProductPage> {
       body: cartProvider.isLoading
           ? const Center(child: CircularProgressIndicator())
           : cartProvider.errorMessage != null
-              ? Center(child: Text(cartProvider.errorMessage!))
+              ? Center(
+                  child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(cartProvider.errorMessage!),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      ElevatedButton(
+                          onPressed: (cartProvider.fetchWatches),
+                          child: const Text(
+                            'Retry',
+                            style: TextStyle(color: Colors.black),
+                          ))
+                    ],
+                  ),
+                ))
               : _viewType == ViewType.list
                   ? ListView.builder(
                       padding: const EdgeInsets.all(15),
@@ -55,6 +78,12 @@ class _ProductPageState extends State<ProductPage> {
                           product: product,
                           onAddToCart: () {
                             cartProvider.addToCart(product);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('${product.name} added to cart'),
+                                duration: const Duration(milliseconds: 1000),
+                              ),
+                            );
                           },
                         );
                       },

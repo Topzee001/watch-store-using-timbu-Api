@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../model/watch.dart';
@@ -6,7 +7,8 @@ class GridViewTile extends StatelessWidget {
   final Watch product;
   final VoidCallback onAddToCart;
 
-  GridViewTile({required this.product, required this.onAddToCart});
+  const GridViewTile(
+      {super.key, required this.product, required this.onAddToCart});
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +34,22 @@ class GridViewTile extends StatelessWidget {
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  //width: double.infinity,
-                  padding: EdgeInsets.all(10),
-                  child: Image.network(product.imageUrl,
-                      errorBuilder: (context, error, stackTrace) {
-                    return Icon(Icons.watch);
-                  }),
+                  padding: const EdgeInsets.all(10),
+                  child: CachedNetworkImage(
+                    imageUrl: product.imageUrl,
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => Icon(Icons.watch),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 product.name,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -60,10 +64,10 @@ class GridViewTile extends StatelessWidget {
                 ),
                 child: IconButton(
                   onPressed: onAddToCart,
-                  icon: Icon(Icons.add_shopping_cart),
+                  icon: const Icon(Icons.add_shopping_cart),
                   iconSize: 20,
                   // padding: EdgeInsets.all(4),
-                  constraints: BoxConstraints(),
+                  constraints: const BoxConstraints(),
                 ),
               )
             ],

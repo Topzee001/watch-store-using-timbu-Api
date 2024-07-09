@@ -4,7 +4,7 @@ import '../services/watch_service.dart';
 
 class CartProvider with ChangeNotifier {
   List<Watch> _products = [];
-  List<Watch> _cartItems = [];
+  final List<Watch> _cartItems = [];
   bool _isLoading = false;
   String? _errorMessage;
 
@@ -50,8 +50,4 @@ class CartProvider with ChangeNotifier {
     }
     return total;
   }
-
-  // double get totalPrice {
-  //   return _cartItems.fold(0, (sum, item) => sum + item.price);
-  // }
 }
